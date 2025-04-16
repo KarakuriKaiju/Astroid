@@ -5,6 +5,7 @@ import pygame
 # Remove this line since database.py doesn't exist
 # from database import connect_database, database_version
 from constants import *
+from player import Player
 
 def main():
     pygame.init
@@ -20,6 +21,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
+        player.update(dt)
+
         screen.fill("black")
         player.draw(screen)
         pygame.display.flip()
